@@ -25,7 +25,8 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Running tests for Docker Images...'
+                echo 'Running tests...'
+                // Replace this with actual test commands
                 sh 'echo "Tests passed!"'
             }
         }
@@ -44,6 +45,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
+                // Replace this with actual deploy command, e.g. Docker run, kubectl apply, etc.
                 sh 'echo "Deployment complete!"'
             }
         }
