@@ -54,7 +54,7 @@ pipeline {
                         docker pull ${DOCKER_IMAGE} &&
                         docker stop my-node-app || true &&
                         docker rm my-node-app || true &&
-                        docker run -d --name my-node-app -p 8080:8080 ${DOCKER_IMAGE}
+                        docker run -d --name my-node-app -p 3000:3000 ${DOCKER_IMAGE}
                     '
                     """
                 }
