@@ -1,13 +1,11 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Node js image using Docker huh and Github Weebhook (Auto triggers) n');
+app.get('/', (req, res) => {
+  res.send('Hello World from your Node.js app deployed via Jenkins!');
 });
 
-server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
