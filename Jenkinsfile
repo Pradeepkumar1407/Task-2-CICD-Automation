@@ -7,8 +7,8 @@ pipeline {
         EC2_HOST = "13.218.161.254 "
         
         // Jenkins credentials IDs configured in Jenkins
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-creds')
-        SSH_KEY = credentials('ec2-ssh-key')
+        DOCKER_HUB_CREDENTIALS = credentials('dDocker ID')
+        SSH_KEY = credentials('7784556d-a0e2-4de7-a68c-ef348074b12c')
     }
 
     stages {
