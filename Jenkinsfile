@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "pradeepkumar1407/my-node-app"
         EC2_USER = "ubuntu"
-        EC2_HOST = "13.218.161.254 "
+        EC2_HOST = "44.204.159.246"
         
         // Jenkins credentials IDs configured in Jenkins
         DOCKER_HUB_CREDENTIALS = credentials('Docker ID')
