@@ -44,11 +44,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                script{
-            docker stop myapp-container || true
-            docker rm myapp-container || true
-            docker run -d --name myapp-container -p 8080:80  ${DOCKER_REGISTRY}/${IMAGE_NAME} myapp:latest
-  }
                 sh 'echo "Deployment complete!"'
             }
         }
