@@ -43,19 +43,19 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh-key', keyFileVariable: 'SSH_KEYFILE')]) {
-    sh """
-    ssh -o StrictHostKeyChecking=no -i $SSH_KEYFILE ubuntu@54.173.157.245 '
-        docker pull ${DOCKER_IMAGE} &&
-        docker stop my-node-app || true &&
-        docker rm my-node-app || true &&
-        docker run -d --name my-node-app -p 3000:3000 ${DOCKER_IMAGE}
-    '
-                    """
-                }
-            }
+    steps {
+        withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh-key', keyFileVariable: 'SSH_KEYFILE')]) {
+            sh '''#!/bin/bash
+            ssh -o StrictHostKeyChecking=no -i "$SSH_KEYFILE" ubuntu@54.173.157.245 '
+                docker pull pradeepkumar1407/my-node-app &&
+                docker stop my-node-app || true &&
+                docker rm my-node-app || true &&
+                docker run -d --name my-node-app -p 3000:3000 pradeepkumar1407/my-node-app
+            '
+            '''
         }
+    }
+}
     }
 
     post {
