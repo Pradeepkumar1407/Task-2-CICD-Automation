@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "pradeepkumar1407/my-node-app"
         EC2_USER = "ubuntu"
-        EC2_HOST = "44.204.159.246"
+        EC2_HOST = "54.173.157.245"
         
         // Jenkins credentials IDs configured in Jenkins
         DOCKER_HUB_CREDENTIALS = credentials('Docker ID')
@@ -50,7 +50,7 @@ pipeline {
   steps {
     withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh-key', keyFileVariable: 'SSH_KEYFILE')]) {
       sh '''
-        ssh -o StrictHostKeyChecking=no -i $SSH_KEYFILE ubuntu@44.204.159.246 '
+        ssh -o StrictHostKeyChecking=no -i $SSH_KEYFILE ubuntu@54.173.157.245 '
           docker pull pradeepkumar1407/my-node-app &&
           docker stop my-node-app || true &&
           docker rm my-node-app || true &&
